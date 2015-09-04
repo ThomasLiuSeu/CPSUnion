@@ -55,36 +55,21 @@
     // 获取查询结果
     $row=mysql_fetch_row($result);
     
-     
-    echo '<font face="verdana">';
-    echo '<table border="1" cellpadding="1" cellspacing="2">';
-
-    // 显示字段名称
-    echo "</b><tr></b>";
-    for ($i=0; $i<mysql_num_fields($result); $i++)
-    {
-      echo '<td><b>'.
-      mysql_field_name($result, $i);
-      echo "</b></td></b>";
-    }
-    echo "</tr></b>";
+    $ret=array();
     // 定位到第一条记录
     mysql_data_seek($result, 0);
     // 循环取出记录
     while ($row=mysql_fetch_row($result))
     {
-      echo "<tr></b>";
+      $record=array();
       for ($i=0; $i<mysql_num_fields($result); $i++ )
       {
-        echo '<td >';
-        echo $row[$i];
-        echo '</td>';
+        $record[mysql_field_name($result, $i)]=$row[$i];
       }
-      echo "</tr></b>";
+      array_push($ret,$record);
     }
    
-    echo "</table></b>";
-    echo "</font>";
+    echo json_encode($ret);
     // 释放资源
     mysql_free_result($result);
     // 关闭连接
