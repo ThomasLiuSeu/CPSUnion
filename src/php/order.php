@@ -4,28 +4,41 @@
     $mysql_password="abcdefg2008"; // 连接数据库密码
     $mysql_database="CPSUnion"; // 数据库的名字
     $user_id = $_GET["uid"] ;
+    $ret=array();
+    $ret_status=array();
     if (!is_numeric($user_id )) 
     {
-        echo "User id is not correct";
+        $ret_status["error_code"]=-1;
+        $ret_status["reason"]="User id is not correct";
+        array_push($ret,$ret_status);
+        echo json_encode($ret);
         exit();
     }
     $status = $_GET["status"] ;
     if (!is_numeric($status ) && $status != "") 
     {
-        echo "Status is not correct:".$status;
-        echo "\nShould be 0,1,2,3,4,5";
+        $ret_status["error_code"]=-2;
+        $ret_status["reason"]="Status is not correct";
+        $ret["status"]=$ret_status;
+        echo json_encode($ret);
         exit();
     }
     $begin_time = $_GET["begin_time"] ;
     if (!is_numeric($begin_time ) && $begin_time != "") 
     {
-        echo "begin time is not correct:".$begin_time;
+        $ret_status["error_code"]=-3;
+        $ret_status["reason"]="Begin time is not correct";
+        array_push($ret,$ret_status);
+        echo json_encode($ret);
         exit();
     }
     $end_time = $_GET["end_time"] ;
     if (!is_numeric($end_time )  && $end_time != "") 
     {
-        echo "end time time is not correct:".$end_time;
+        $ret_status["error_code"]=-4;
+        $ret_status["reason"]="End time is not correct";
+        array_push($ret,$ret_status);
+        echo json_encode($ret);
         exit();
     }
     $tags=$_GET["tags"] ;
@@ -55,7 +68,7 @@
     // 获取查询结果
     $row=mysql_fetch_row($result);
     
-    $ret=array();
+    $data=array();
     // 定位到第一条记录
     mysql_data_seek($result, 0);
     // 循环取出记录
@@ -66,9 +79,12 @@
       {
         $record[mysql_field_name($result, $i)]=$row[$i];
       }
-      array_push($ret,$record);
+      array_push($data,$record);
     }
-   
+    $ret_status["error_code"]=0;
+    $ret_status["reason"]="Suceess";
+    $ret["status"] = $ret_status;
+    $ret["data"] = $data;
     echo json_encode($ret);
     // 释放资源
     mysql_free_result($result);
