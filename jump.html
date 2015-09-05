@@ -1,0 +1,49 @@
+<!Document HTML>
+<head>
+<script src="webroot/lib/jquery-2.0.2.js"></script>
+<script>
+		var myToken = "ZhZIC5HluW3vVdlO";
+		$(document).ready(function() {
+			if (getQueryString("url")) {
+				var param = {};
+				param.uid = getQueryString("uid");
+				param.tags = getQueryString("tags");
+				$(document).ready(function(){
+				$.ajax({
+					url : "http://192.168.2.113/CPSUnion/src/php/click.php",
+					data : param,
+					async: false,
+					success : function (resp, stat) {
+						var newTag = resp;
+						var newUrl = getQueryString("url");
+						var newToken = myToken;
+						returnUrl = "http://union.55haitao.com/index.php?mod=go&op=multiple&token=" + newToken + "&url="+ newUrl +"&tag=" + newTag;
+						window.location.href = returnUrl;
+					}
+				})
+			})
+			}
+		})
+		
+		function getQueryString(name) {
+			var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) {
+				return unescape(r[2]);
+			}
+			return null;
+		}
+		
+		function getQueryString2(name) {
+			if (window.location.href.indexOf(name) > -1) {
+				return "http://www.baidu.com";
+			}
+			return null;
+		}
+		
+
+</script>
+</head>
+
+<body>
+</body>
