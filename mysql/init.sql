@@ -1,6 +1,19 @@
 DROP DATABASE CPSUnion;
 CREATE DATABASE CPSUnion;
 use CPSUnion;
+
+CREATE TABLE IF NOT EXISTS `user` (
+`user_id` BIGINT( 11 ) NOT NULL,
+`user_name` VARCHAR( 1023 ) NOT NULL,
+`password` VARCHAR( 1023 ) NOT NULL,
+ PRIMARY KEY(`user_id`),
+ ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 
+
+CREATE TABLE IF NOT EXISTS `upper_union` (
+`union_id` BIGINT( 11 ) NOT NULL,
+`union_name` VARCHAR( 1023 ) NOT NULL,
+ ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 
+
 CREATE TABLE IF NOT EXISTS `clicks` (
 `click_id` BIGINT( 11 ) NOT NULL AUTO_INCREMENT ,
 `user_id` BIGINT( 11 ) NOT NULL,
@@ -27,3 +40,4 @@ CREATE TABLE IF NOT EXISTS `orders` (
  PRIMARY KEY(`order_id`),
  FOREIGN KEY (`click_id`)  REFERENCES `clicks`(`click_id`)
  ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 
+

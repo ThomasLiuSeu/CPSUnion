@@ -3,10 +3,10 @@
     $mysql_username="root"; // 连接数据库用户名
     $mysql_password="abcdefg2008"; // 连接数据库密码
     $mysql_database="CPSUnion"; // 数据库的名字
-    
+
     // 连接到数据库
     $conn=mysql_connect($mysql_server_name, $mysql_username,
-                        $mysql_password);
+                   $mysql_password);
                         
      // 从表中提取信息的sql语句
     $strsql="SELECT * FROM `clicks`";

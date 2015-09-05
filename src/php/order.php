@@ -8,8 +8,8 @@
     $ret_status=array();
     if (!is_numeric($user_id )) 
     {
-        $ret_status["error_code"]=-1;
-        $ret_status["reason"]="User id is not correct";
+        $ret_status["error_code"]=1000;
+        $ret_status["msg"]="User id is not correct";
         array_push($ret,$ret_status);
         echo json_encode($ret);
         exit();
@@ -17,8 +17,8 @@
     $status = $_GET["status"] ;
     if (!is_numeric($status ) && $status != "") 
     {
-        $ret_status["error_code"]=-2;
-        $ret_status["reason"]="Status is not correct";
+        $ret_status["error_code"]=1001;
+        $ret_status["msg"]="Status is not correct";
         $ret["status"]=$ret_status;
         echo json_encode($ret);
         exit();
@@ -26,8 +26,8 @@
     $begin_time = $_GET["begin_time"] ;
     if (!is_numeric($begin_time ) && $begin_time != "") 
     {
-        $ret_status["error_code"]=-3;
-        $ret_status["reason"]="Begin time is not correct";
+        $ret_status["error_code"]=1002;
+        $ret_status["msg"]="Begin time is not correct";
         array_push($ret,$ret_status);
         echo json_encode($ret);
         exit();
@@ -35,8 +35,8 @@
     $end_time = $_GET["end_time"] ;
     if (!is_numeric($end_time )  && $end_time != "") 
     {
-        $ret_status["error_code"]=-4;
-        $ret_status["reason"]="End time is not correct";
+        $ret_status["error_code"]=-1003;
+        $ret_status["msg"]="End time is not correct";
         array_push($ret,$ret_status);
         echo json_encode($ret);
         exit();
@@ -44,9 +44,9 @@
     $tags=$_GET["tags"] ;
     // 连接到数据库
     $conn=mysql_connect($mysql_server_name, $mysql_username, $mysql_password);
-                        
+
      // 从表中提取信息的sql语句
-    $strsql="SELECT * FROM `clicks` INNER JOIN `orders` ON clicks.click_id = orders.click_id where user_id=".$user_id;
+    $strsql="SELECT user_id, order_id, store_id, store_name, trading_volume,cashback, order_time, report_time, valid_time, currency_type, status FROM `clicks` INNER JOIN `orders` ON clicks.click_id = orders.click_id where user_id=".$user_id;
     if ($tags != "") 
     {
         $strsql = $strsql." and tags=\"".$tags."\"";
@@ -82,7 +82,7 @@
       array_push($data,$record);
     }
     $ret_status["error_code"]=0;
-    $ret_status["reason"]="Suceess";
+    $ret_status["msg"]="Suceess";
     $ret["status"] = $ret_status;
     $ret["data"] = $data;
     echo json_encode($ret);

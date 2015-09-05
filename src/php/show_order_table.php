@@ -6,7 +6,7 @@
     
     // 连接到数据库
     $conn=mysql_connect($mysql_server_name, $mysql_username,
-                        $mysql_password);
+                   $mysql_password);
                         
      // 从表中提取信息的sql语句
     $strsql="SELECT * FROM `clicks` INNER JOIN `orders` ON clicks.click_id = orders.click_id";

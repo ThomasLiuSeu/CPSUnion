@@ -1,4 +1,4 @@
-<?php
+<?php header('Access-Control-Allow-Origin:*');
     $mysql_server_name="localhost"; //数据库服务器名称
     $mysql_username="root"; // 连接数据库用户名
     $mysql_password="abcdefg2008"; // 连接数据库密码
