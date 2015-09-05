@@ -10,6 +10,7 @@
 				param.tags = getQueryString("tags");
 				$(document).ready(function(){
 				$.ajax({
+                    //TODO change the server url
 					url : "http://192.168.2.113/CPSUnion/src/php/click.php",
 					data : param,
 					async: false,
@@ -30,13 +31,6 @@
 			var r = window.location.search.substr(1).match(reg);
 			if (r != null) {
 				return unescape(r[2]);
-			}
-			return null;
-		}
-		
-		function getQueryString2(name) {
-			if (window.location.href.indexOf(name) > -1) {
-				return "http://www.baidu.com";
 			}
 			return null;
 		}

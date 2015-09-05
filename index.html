@@ -1,89 +1,29 @@
 <html>
 <head>
     <script src="webroot/lib/jquery-2.0.2.js"></script>
-<!--	<script src="webroot/js/utils/commonUtil.js"></script> -->
+    <!--	<script src="webroot/js/utils/commonUtil.js"></script> -->
     <link rel="stylesheet" type="text/css" href="webroot/css/main.css">
     <script>
- //       var mySite = "http://www.riertao.com/";
-		var mySite = "http://localhost:9080/CPSUnion/jump.html";
-		var myToken = "ZhZIC5HluW3vVdlO";
-		var newSiteUrl;
-        function submitClick () {
-			var tempSite = this.mySite + "?";
-            $.each($(".userInput"), function(idx, rec) {
-                tempSite += rec.id + "=" + escape(rec.value||"") + "&";
+        //       var mySite = "http://www.riertao.com/";
+        // TODO change the port number when change server
+        var mySite = "http://localhost:9080/CPSUnion/jump.html";
+        var myToken = "ZhZIC5HluW3vVdlO";
+        var newSiteUrl;
+        function submitClick() {
+            var tempSite = this.mySite + "?";
+            $.each($(".userInput"), function (idx, rec) {
+                tempSite += rec.id + "=" + escape(rec.value || "") + "&";
             });
             if (tempSite.lastIndexOf('&') > 0) {
-                tempSite = tempSite.substr(0 , tempSite.length - 1);
+                tempSite = tempSite.substr(0, tempSite.length - 1);
             }
-			$("#result")[0].value = tempSite;
-//            $("#result")[0].value = getNewSiteUrl();
+            $("#result")[0].value = tempSite;
         }
 
         function onJump() {
-            var destSite =  $("#result")[0].value;
+            var destSite = $("#result")[0].value;
             window.location.href = destSite;
         }
-		
-		function getNewSiteUrl() {
-			var returnUrl;
-			var param = {};
-			param.uid = $("#uid")[0].value;
-			param.tags = $("#tag")[0].value;
-			$(document).ready(function(){
-				$.ajax({
-					url : "http://192.168.2.113/CPSUnion/src/php/click.php",
-					data : param,
-					async: false,
-					success : function (resp, stat) {
-						var newTag = resp;
-						var newUrl = escape($("#url")[0].value||"");
-						var newToken = myToken;
-						returnUrl = "http://union.55haitao.com/index.php?mod=go&op=multiple&token=" + newToken + "&url="+ newUrl +"&tag=" + newTag;
-					}
-				})
-			})
-			return returnUrl;
-		}
-		
-		$(document).ready(function() {
-			if (getQueryString2("url")) {
-				var param = {};
-				param.uid = getQueryString("uid");
-				param.tags = getQueryString("tags");
-				$(document).ready(function(){
-				$.ajax({
-					url : "http://192.168.2.113/CPSUnion/src/php/click.php",
-					data : param,
-					async: false,
-					success : function (resp, stat) {
-						var newTag = resp;
-						var newUrl = getQueryString("url");
-						var newToken = myToken;
-						returnUrl = "http://union.55haitao.com/index.php?mod=go&op=multiple&token=" + newToken + "&url="+ newUrl +"&tag=" + newTag;
-					}
-				})
-			})
-				window.location.href = newSiteUrl;
-			}
-		})
-		
-		function getQueryString(name) {
-			var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
-			var r = window.location.search.substr(1).match(reg);
-			if (r != null) {
-				return unescape(r[2]);
-			}
-			return null;
-		}
-		
-		function getQueryString2(name) {
-			if (window.location.href.indexOf(name) > -1) {
-				return "http://www.baidu.com";
-			}
-			return null;
-		}
-		
     </script>
     <title></title>
 </head>
