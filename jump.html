@@ -10,8 +10,8 @@
 				param.tags = getQueryString("tags");
 				$(document).ready(function(){
 				$.ajax({
-                    //TODO change the server url
-					url : "http://192.168.2.113/CPSUnion/src/php/click.php",
+					//TODO change the server url
+					url : "http://127.0.0.1:8090/click.php",
 					data : param,
 					async: false,
 					success : function (resp, stat) {

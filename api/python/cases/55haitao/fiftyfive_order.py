@@ -12,7 +12,11 @@ class FiftyFiveOrder(Order):
     url="union.55haitao.com"
     suffix= "/union.php?mod=api_cashback"
     data = GetResponse(params_list,url, suffix)
-    print data
+    decodejson = json.loads(data)
+    if decodejson["status"]["code"] == 0 :
+      print decodejson["data"]
+    else :
+      print decodejson["status"]
 
 if __name__ == '__main__':
   order = FiftyFiveOrder();
