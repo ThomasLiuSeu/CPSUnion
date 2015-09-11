@@ -6,6 +6,12 @@ sys.path.append("/var/www/html/CPSUnion/api/python/common")
 from httpclient import GetResponse
 from order import Order
 import time
+import hashlib
+
+def md5(str):
+    m = hashlib.md5()   
+    m.update(str)
+    return int('0x' +  m.hexdigest()[0:8], 16)
 
 class FiftyFiveOrder():
   def __init__(self):
@@ -20,7 +26,8 @@ class FiftyFiveOrder():
       for order_data in orders_data:
         print order_data;
         order = Order();
-        order.InsertDb(order_data["order_id"], order_data["tagcode"], 1, order_data["store_id"], order_data["store_name"], order_data["sale_amount"], order_data["cashback"], order_data["order_time"], order_data["report_time"], order_data["valid_time"], order_data["currency_type"],  order_data["status"]);
+        print md5('55haitao' + order_data["order_id"]);
+        order.InsertDb(md5('55haitao' + order_data["order_id"]), order_data["tagcode"], 1, order_data["store_id"], order_data["store_name"], order_data["sale_amount"], order_data["cashback"], order_data["order_time"], order_data["report_time"], order_data["valid_time"], order_data["currency_type"],  order_data["status"]);
         order.ShowDb();
     else :
       print decodejson["status"]
