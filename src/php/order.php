@@ -3,9 +3,38 @@
     $mysql_username="root"; // 连接数据库用户名
     $mysql_password="abcdefg2008"; // 连接数据库密码
     $mysql_database="CPSUnion"; // 数据库的名字
-    $user_id = $_GET["uid"] ;
     $ret=array();
     $ret_status=array();
+    $token= $_GET["token"] ;
+    if (!empty($token )) 
+    {
+       $decode = base64_decode($token);
+       if (is_numeric($decode )) 
+      {
+         $user_id = $decode & 0x0000ffff;
+         if ($token != base64_encode(base_convert(md5($user_id), 16, 10 )  & 0xffff0000 + $user_id)) 
+         {
+          $ret_status["error_code"]=1005;
+          $ret_status["msg"]="Token check error";
+          array_push($ret,$ret_status);
+          echo json_encode($ret);
+          exit ();
+        }
+      } else {
+        $ret_status["error_code"]=1006;
+        $ret_status["msg"]="Token is not correct";
+        array_push($ret,$ret_status);
+        echo json_encode($ret);
+        exit ();
+      }
+    } else {
+        $ret_status["error_code"]=1007;
+        $ret_status["msg"]="Token is  empty";
+        array_push($ret,$ret_status);
+        echo json_encode($ret);
+        exit ();
+   }
+
     if (!is_numeric($user_id )) 
     {
         $ret_status["error_code"]=1000;
