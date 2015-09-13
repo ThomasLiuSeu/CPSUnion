@@ -1,0 +1,159 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>RTB5海淘联盟</title><link href="/static/style/global.css" type="text/css" rel="stylesheet" />
+<div class="m">
+<h1><a title="RTB5海淘联盟" href="/"></a></h1>
+
+</ul>
+</div><div class="right_main">
+<div class="api">
+<h1>RTB5联盟返利报表API接口说明及调用规范</h1>
+<div class="content">
+<p></p>
+</div>
+<h2>接口调用规范</h2>
+<div class="content">
+<p>规范约定了调用接口的常规总则，在具体的接口中，如无特别的说明，请按规范调用。</p>
+<p>接口协议：HTTP GET</p>
+<p>编码格式：UTF-8，对于输入和输出同是utf-8;</p>
+</div>
+
+<div style="margin:0px 30px;">
+<div>
+<table width="100%" border="0" cellpadding="0" cellspacing="1" class="table">
+<tbody>
+<tr>
+<td colspan="3" style="text-align:center; background:#f4f4f4; font-weight:bold;">API参数说明</td>
+</tr>
+<tr>
+<td>token</td>
+<td width="150">字符串（必填），如“NDI5NDkwMTc3MQ==”</td>
+<td>网站密匙，向管理员获取</td>
+</tr>
+<tr>
+<td>begin_time/end_time</td>
+<td>查询的时间段（选填）</td>
+<td>开始时间，结束时间<br />格式：unix时间</td>
+</tr>
+<td>status</td>
+<td>单独查询的订单类型（选填）</td>
+<td>0未处理，1待生效，2无效，3已删除，4已生效,5商家修正</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>自定义标签,链接中自带的标签，方便网站主统计分析（选填）</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="content">
+<p><strong>接口地址：</strong></p>
+<p>http://121.40.129.177:8090/order.php</p>
+
+<p><strong>示例链接：</strong></p>
+<p>http://121.40.129.177:8090/order.php?token=NDI5NDkwMTc3MQ==&tags=321</p>
+</div>
+
+<h3>返回格式之json示例</h3>
+<div class="code">
+<p>{</p>
+<p class="txt1">"status":{</p>
+<p class="txt2">"code":0,</p>
+<p class="txt2">"msg":"success"</p>
+<p class="txt1">},</p>
+<p class="txt1">["data":{</p>
+<p class="txt2">"user_id": "11",</p>
+<p class="txt2">"store_id": "1234",</p>
+<p class="txt2">"store_name": "Puritan's Pride",</p>
+<p class="txt2">"order_id": "03338636639105",*订单编号</p>
+<p class="txt2">"order_time": "1441941138",*订单交易时间</p>
+<p class="txt2">"report_time": "1441944047",*订单入库时间</p>
+<p class="txt2">"valid_time": "1449717138",*订单生效时间</p>
+<p class="txt2">"currency_type": "USD",*币种</p>
+<p class="txt2">"trading_volume": "12.99",*交易金额</p>
+<p class="txt2">"cashback": "2.60",*返利金额</p>
+<p class="txt2">"status": 4,*订单状态,0已下单，1待生效，2无效，3删除，4已生效，5商家修正</p>
+<p class="txt2">"tags": "",*自定义标签</p>
+<p class="txt1">}
+<p class="txt1">]
+<p>}</p>
+</div>
+
+<h2>错误代码</h2>
+<div style="margin:15px 30px;">
+<div>
+<table width="100%" border="0" cellpadding="0" cellspacing="1" class="table">
+<tbody>
+<tr>
+<th width="60" height="25">代码</th>
+<th>备注说明</th>
+</tr>
+<tr>
+<td>0</td>
+<td>成功</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>用户不存在</td>
+</tr>
+<tr>
+<td>1001</td>
+<td>status不正确</td>
+</tr>
+<tr>
+<td>1002</td>
+<td>开始时间不正确</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>结束时间不正确</td>
+</tr>
+<tr>
+<td>1005</td>
+<td>token验证错误</td>
+</tr>
+<tr>
+<td>1006</td>
+<td>token格式不正确</td>
+</tr>
+<td>1007</td>
+<td>token为空</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div><div id="footer">
+&copy;2015 www.rtb5.com
+
+</div>
+<span style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?4e2c2b15d64fd57416a2648aa75941c5";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</span><!--artDialog-->
+<link href="/static/plugs/artDialog/skins/blue.css" type="text/css" rel="stylesheet" />
+<script src="/static/plugs/artDialog/artDialog.source.js" type="text/javascript" ></script>
+<script src="/static/plugs/artDialog/plugins/iframeTools.source.js" type="text/javascript" ></script>
+<!--artDialog-->
+<!--datePicker-->
+<link rel="stylesheet" media="all" type="text/css" href="./static/plugs/datePicker/jquery-ui.css" />
+<script src="./static/plugs/datePicker/jquery-ui.min.js" type="text/javascript"></script>
+</body>
+</html>
+
