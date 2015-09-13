@@ -2,7 +2,7 @@
 #coding=utf8
 import json
 import sys; 
-sys.path.append("/var/www/html/CPSUnion/api/python/common") 
+sys.path.append("../../common") 
 from httpclient import GetResponse
 from order import Order
 import time

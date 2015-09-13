@@ -16,6 +16,9 @@
     // 连接到数据库
     $conn=mysql_connect($mysql_server_name, $mysql_username,
                         $mysql_password);
+    if(!$conn){
+      die("连接失败".mysql_error());
+    }
      // 从表中提取信息的sql语句 TODO(cernwang@tencent.com)
     $strsql="INSERT INTO `clicks`  values(".$click_id.",".$user_id.",".$time.",\"".$tags."\",1)";
     // 执行sql查询

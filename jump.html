@@ -11,13 +11,18 @@
 				$(document).ready(function(){
 				$.ajax({
 					//TODO change the server url
-					url : "http://127.0.0.1:8090/click.php",
+					url : "http://121.40.129.177:8090/click.php",
 					data : param,
 					async: false,
 					success : function (resp, stat) {
 						var newTag = resp;
 						var newUrl = getQueryString("url");
 						var newToken = myToken;
+						if(newUrl.substr(0,4)!="http")
+						{
+						  newUrl="http%3A//"+newUrl;//这部分是以http://为开头的处理
+                                                  alert(newUrl);
+						}	
 						returnUrl = "http://union.55haitao.com/index.php?mod=go&op=multiple&token=" + newToken + "&url="+ newUrl +"&tag=" + newTag;
 						window.location.href = returnUrl;
 					}

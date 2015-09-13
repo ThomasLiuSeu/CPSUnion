@@ -24,7 +24,7 @@ def GetResponse(params_list,url, suffix):
             httpclient.close()
 
 if __name__ == '__main__':
-    params_list={'token':'ZhZIC5HluW3vVdlO','begin_date':'2014-01-01','end_date':'2015-08-01'}
+    params_list={'token':'ZhZIC5HluW3vVdlO','begin_date':'2014-01-01','end_date':'2015-10-01'}
     url="union.55haitao.com"
     suffix= "/union.php?mod=api_cashback"
     print GetResponse(params_list,url, suffix)
