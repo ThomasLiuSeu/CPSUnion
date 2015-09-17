@@ -21,7 +21,6 @@
 						if(newUrl.substr(0,4)!="http")
 						{
 						  newUrl="http%3A//"+newUrl;//这部分是以http://为开头的处理
-                                                  alert(newUrl);
 						}	
 						returnUrl = "http://union.55haitao.com/index.php?mod=go&op=multiple&token=" + newToken + "&url="+ newUrl +"&tag=" + newTag;
 						window.location.href = returnUrl;
