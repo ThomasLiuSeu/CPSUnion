@@ -1,5 +1,5 @@
 #!/bin/sh
-$projdir=/var/www/html
+projdir=/var/www/html
 cp ../*.html $projdir
 cp ../*.jsp $projdir
 cp -r ../webroot $projdir
