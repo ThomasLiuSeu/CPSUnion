@@ -1,0 +1,2 @@
+/usr/bin/ar cr ../lib/liborder_update_processor.a  CMakeFiles/order_update_processor.dir/order_update_processor.cc.o
+/usr/bin/ranlib ../lib/liborder_update_processor.a

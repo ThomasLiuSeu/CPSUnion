@@ -1,0 +1,2 @@
+/usr/bin/ar cr ../lib/liborder_pb.a  CMakeFiles/order_pb.dir/order.pb.cc.o
+/usr/bin/ranlib ../lib/liborder_pb.a

@@ -1,0 +1,24 @@
+
+syntax = "proto3";
+
+package RTB5;
+
+message UserExt{
+  //
+  repeated uint64 campaign_enable = 1;
+}
+
+message User {
+  //
+  uint64 user_id = 1;
+  //
+  string user_name = 2;
+  //
+  string account = 3;
+  //
+  string password = 4;
+  //
+  string token = 5;
+  //
+  UserExt user_ext = 6;
+}

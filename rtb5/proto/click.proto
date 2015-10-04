@@ -1,0 +1,43 @@
+
+syntax = "proto3";
+
+package RTB5;
+
+// The greeting service definition.
+service ClickService {
+  rpc Process (ClickRequest) returns (ClickResponse) {}
+}
+
+message ClickRequest {
+ //
+ uint64 user_id = 1;
+ //
+ string tags = 2;
+ //
+ string origin_url = 3;
+}
+
+message ClickResponse {
+  string second_jump_url = 1;
+}
+
+message Click {
+  //
+  uint64 click_id = 1;
+  //
+  uint64 union_id = 2;
+  //
+  uint64 campaign_id = 3;
+  //
+  uint64 click_time = 4;
+  //
+  string origin_url = 5;
+  //
+  string second_jump_url = 6;
+  //
+  uint64 user_id = 7;
+  //
+  string tags = 8;
+  //
+  string ip = 9;
+}

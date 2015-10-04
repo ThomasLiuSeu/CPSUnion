@@ -12,7 +12,7 @@ def GetResponse(params_list,url, suffix):
  
         httpclient = httplib.HTTPConnection(url, 80, timeout=30)
         httpclient.request("POST",  suffix,  params, headers)
- 
+        print params; 
         response = httpclient.getresponse()
         if (response.status != 200):
             print response.reason

@@ -1,0 +1,2 @@
+/usr/bin/ar cr ../lib/libcampaign_pb.a  CMakeFiles/campaign_pb.dir/campaign.pb.cc.o
+/usr/bin/ranlib ../lib/libcampaign_pb.a

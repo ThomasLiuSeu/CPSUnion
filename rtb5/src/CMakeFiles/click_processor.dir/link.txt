@@ -1,0 +1,2 @@
+/usr/bin/ar cr ../lib/libclick_processor.a  CMakeFiles/click_processor.dir/click_processor.cc.o
+/usr/bin/ranlib ../lib/libclick_processor.a

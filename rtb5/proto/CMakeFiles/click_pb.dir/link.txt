@@ -1,0 +1,2 @@
+/usr/bin/ar cr ../lib/libclick_pb.a  CMakeFiles/click_pb.dir/click.grpc.pb.cc.o CMakeFiles/click_pb.dir/click.pb.cc.o
+/usr/bin/ranlib ../lib/libclick_pb.a

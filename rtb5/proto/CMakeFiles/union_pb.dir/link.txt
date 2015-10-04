@@ -1,0 +1,2 @@
+/usr/bin/ar cr ../lib/libunion_pb.a  CMakeFiles/union_pb.dir/union.pb.cc.o
+/usr/bin/ranlib ../lib/libunion_pb.a

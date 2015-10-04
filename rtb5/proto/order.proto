@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package RTB5;
+
+message Order {
+  //
+  uint64 order_id = 1;
+  //
+  uint64 status = 2;
+  //
+  uint64 trading_volume = 3;
+  //
+  uint64 commission = 4;
+  // 
+  uint64 order_time = 5;
+  //
+  uint64 valid_time = 6;
+  //
+  CurrencyType currency_type = 7;
+  //
+  uint64 click_id = 8;
+
+  enum CurrencyType {
+    //
+    RMB = 0;
+    //
+    USD = 1;
+  }
+}

@@ -1,0 +1,7 @@
+/home/qianwang/codebase/rtb5/proto/CMakeFiles/campaign_pb.dir
+/home/qianwang/codebase/rtb5/proto/CMakeFiles/click_pb.dir
+/home/qianwang/codebase/rtb5/proto/CMakeFiles/grpc_serveice.dir
+/home/qianwang/codebase/rtb5/proto/CMakeFiles/order_pb.dir
+/home/qianwang/codebase/rtb5/proto/CMakeFiles/proto.dir
+/home/qianwang/codebase/rtb5/proto/CMakeFiles/union_pb.dir
+/home/qianwang/codebase/rtb5/proto/CMakeFiles/user_pb.dir

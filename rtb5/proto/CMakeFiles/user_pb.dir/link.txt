@@ -1,0 +1,2 @@
+/usr/bin/ar cr ../lib/libuser_pb.a  CMakeFiles/user_pb.dir/user.pb.cc.o
+/usr/bin/ranlib ../lib/libuser_pb.a

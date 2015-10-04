@@ -1,0 +1,2 @@
+/usr/bin/ar cr ../lib/libhaitao55_order_update_functor.a  CMakeFiles/haitao55_order_update_functor.dir/haitao55_order_update_functor.cc.o
+/usr/bin/ranlib ../lib/libhaitao55_order_update_functor.a

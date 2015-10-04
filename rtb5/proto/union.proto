@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "campaign.proto";
+
+package RTB5;
+
+message Union {
+  //
+  uint64 union_id = 1;
+  //
+  string union_name = 2;
+  // 
+  string url_pattern = 3;
+  //
+  repeated Campaign campaigns = 4;
+}

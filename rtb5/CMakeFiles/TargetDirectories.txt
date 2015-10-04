@@ -1,0 +1,14 @@
+/home/qianwang/codebase/rtb5/proto/CMakeFiles/campaign_pb.dir
+/home/qianwang/codebase/rtb5/src/CMakeFiles/click_client.dir
+/home/qianwang/codebase/rtb5/proto/CMakeFiles/click_pb.dir
+/home/qianwang/codebase/rtb5/src/CMakeFiles/click_processor.dir
+/home/qianwang/codebase/rtb5/src/CMakeFiles/click_server.dir
+/home/qianwang/codebase/rtb5/src/CMakeFiles/database.dir
+/home/qianwang/codebase/rtb5/proto/CMakeFiles/grpc_serveice.dir
+/home/qianwang/codebase/rtb5/src/CMakeFiles/haitao55_order_update_functor.dir
+/home/qianwang/codebase/rtb5/src/CMakeFiles/http_client.dir
+/home/qianwang/codebase/rtb5/proto/CMakeFiles/order_pb.dir
+/home/qianwang/codebase/rtb5/src/CMakeFiles/order_update_processor.dir
+/home/qianwang/codebase/rtb5/proto/CMakeFiles/proto.dir
+/home/qianwang/codebase/rtb5/proto/CMakeFiles/union_pb.dir
+/home/qianwang/codebase/rtb5/proto/CMakeFiles/user_pb.dir
